@@ -133,7 +133,7 @@ a:active {
 .content_bottom .right {
   width: 48%;
   height: 400px;
-  background-color: yellow;
+  /* background-color: yellow; */
 
 }
 
