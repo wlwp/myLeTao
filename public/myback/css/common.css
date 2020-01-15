@@ -82,9 +82,18 @@ a:active {
 .aside_nav ul li .indexCat {
   display: none;
 }
+
 .aside_nav ul li .indexCat a {
   display: block;
   padding-left: 65px;
+}
+.aside_nav ul li a {
+  border-left: 3px solid transparent;
+}
+.aside_nav ul li a.now {
+  background-color: #1D1F21;
+  border-left: 3px solid #006699;
+
 }
 .lt_main {
   height: 100%;
