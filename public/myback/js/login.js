@@ -1,5 +1,3 @@
-
-
 $(function() {
   // 注册表单校验初始化事件
   $('#form').bootstrapValidator({
@@ -18,6 +16,12 @@ $(function() {
           notEmpty: {
             message: '用户名不能为空'
           },
+          //长度校验
+          stringLength: {
+            min: 2,
+            max: 6,
+            message: '用户名长度必须在2到6位之间'
+          },
           callback: {
             message: '用户名不存在'
           }
@@ -27,6 +31,11 @@ $(function() {
         validators: {
           notEmpty: {
             message: '密码不能为空'
+          },
+          stringLength: {
+            min: 6,
+            max: 12,
+            message: '密码长度必须在6到12位之间'
           },
           callback: {
             message: '密码错误'
@@ -65,5 +74,12 @@ $(function() {
         }
       }
     })
+  })
+
+  // 点击重置按钮重置form表单
+  $('.resetBtn').click(function() {
+    $('#form')
+      .data('bootstrapValidator')
+      .resetForm(true)
   })
 })
