@@ -19,7 +19,7 @@
         <h3>欢迎大家</h3>
       </div>
       <div class="aside_user">
-        <img src="./images/default.png" alt="" />
+        <img src="./images/tiger.jpg" alt="" />
         <p>超级管理员</p>
       </div>
       <div class="aside_nav">
@@ -30,8 +30,7 @@
             >
           </li>
           <li>
-            <a href="javascript:;"
-             class="category"
+            <a href="javascript:;" class="category"
               ><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a
             >
             <div class="indexCat">
@@ -50,10 +49,14 @@
     <div class="lt_main">
       <div class="topbar">
         <div class="topbar_left pull-left">
-          <a href="#" id="icon_left"><i class="glyphicon glyphicon-align-justify"></i></a>
+          <a href="#" id="icon_left"
+            ><i class="glyphicon glyphicon-align-justify"></i
+          ></a>
         </div>
         <div class="topbar_right pull-right">
-          <a href="#" id="icon_logout"><i class="glyphicon glyphicon-log-out"></i></a>
+          <a href="#" id="icon_logout"
+            ><i class="glyphicon glyphicon-log-out"></i
+          ></a>
         </div>
       </div>
       <div class="container-fluid content">
@@ -65,26 +68,94 @@
           </ol>
         </div>
         <div class="content_bottom">
-          <div class="left pull-left"></div>
-          <div class="right pull-right"></div>
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>手机号</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <!-- 准备分页的容器 -->
+          <div class="pull-right">
+            <ul id="paginator"></ul>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- 退出登录模态框 -->
-    <div id="modal" class="modal fade" tabindex="-1" >
+    <!-- 用户列表模板 -->
+    <script type="text/html" id="userTpl">
+      {{ each rows v i }}
+      <tr>
+        <td>{{i + 1 + (page - 1) * size}}</td>
+        <td>{{ v.username }}</td>
+        <td>{{ v.mobile }}</td>
+        <td>{{ v.isDelete === 1 ? '正常' : '禁用'}}</td>
+        <td data-id="{{v.id}}">
+          {{ if v.isDelete === 1}}
+          <button class="btn btn-danger">禁用</button>
+          {{ else if v.isDelete === 0 }}
+          <button class="btn btn-success">启用</button>
+          {{/if}}
+        </td>
+      </tr>
+      {{ /each }}
+    </script>
+    <!-- 修改用户状态模态框 -->
+    <div id="userModal" class="modal fade" tabindex="-1">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
             <h4 class="modal-title">温馨提示:</h4>
           </div>
           <div class="modal-body">
-            <p class="tips"><i class="glyphicon glyphicon-info-sign"></i><span>您确定要退出后台管理系统吗?</span></p>
+            <p class="tips">
+              <i class="glyphicon glyphicon-info-sign"></i
+              ><span>您确定要执行此操作吗?</span>
+            </p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="button" class="btn btn-primary logoutBtn">退出</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary confirmBtn">
+              确定
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 退出登录模态框 -->
+    <div id="modal" class="modal fade" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+            <h4 class="modal-title">温馨提示:</h4>
+          </div>
+          <div class="modal-body">
+            <p class="tips">
+              <i class="glyphicon glyphicon-info-sign"></i
+              ><span>您确定要退出后台管理系统吗?</span>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary logoutBtn">
+              退出
+            </button>
           </div>
         </div>
       </div>
@@ -94,7 +165,9 @@
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/user.js"></script>
   </body>
 </html>

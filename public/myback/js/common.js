@@ -7,7 +7,7 @@ $(document).ajaxStart(function() {
 $(document).ajaxStop(function() {
   setTimeout(function() {
     NProgress.done()
-  }, 1000)
+  }, 500)
 })
 
 // 登陆拦截
