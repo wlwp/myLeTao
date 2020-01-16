@@ -17,7 +17,7 @@ if (location.href.indexOf('login.html') === -1) {
     type: 'get',
     url: '/employee/checkRootLogin',
     success: function(res) {
-      console.log(res)
+      // console.log(res)
       if (res.error === 400) {
         // 未登录,拦截到登录页
         location.href = 'login.html'
