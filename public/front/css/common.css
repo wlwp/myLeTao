@@ -25,6 +25,7 @@ img {
   position: relative;
   padding-top: 45px;
   padding-bottom: 55px;
+  background-color: #fff;
 
 }
 .lt_header{
@@ -65,17 +66,7 @@ img {
   height: 100%;
   position: relative;
 }
-.main_nav {
- padding: 10px;
-}
-.main_nav ul li {
-  float: left;
-  width: 33.33%;
 
-}
-.main_nav ul li a {
-  display: block;
-}
 
 .lt_footer {
   width: 100%;
