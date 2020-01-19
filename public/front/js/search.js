@@ -93,6 +93,9 @@ $(function() {
     render()
     $('.searchText').val('')
 
+    // 添加完搜索历史后,要跳转到搜索列表页
+    location.href = 'searchList.html?key=' + txt;
+
    
   })
 })

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 需求: 地址栏  xxx.html?key=匡威&name=pp&age=18
+      //      解析地址栏参数, 将参数解析成一个对象
+      //      例如: { key: '匡威', name: 'pp', age: 18 }
+
+      // 获取地址栏参数
+      var str = location.search // ?key=%E5%8C%A1%E5%A8%81&name=pp&age=18
+      // 进行转码
+      str = decodeURI(str) // ?key=匡威&name=pp&age=18
+      // 截取需要的
+      str = str.slice(1) //  key=匡威&name=pp&age=18
+      // 字符串分割
+      var arr = str.split('&') // ["key=匡威", "name=pp", "age=18"]
+      // 遍历数组
+      var obj = {}
+      arr.forEach(function(v, i) {
+        var key = v.split('=')[0]
+        var value = v.split('=')[1]
+        // 将属性添加到对象中
+        obj[key] = value
+        
+      })
+      console.log(obj);
+      
+    </script>
+  </body>
+</html>

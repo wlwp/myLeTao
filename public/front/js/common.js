@@ -11,3 +11,25 @@ $(function() {
     interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
   })
 })
+
+// 3. 这是一个方法专门用于获取地址栏关键字
+function getSearch(k) {
+  // 获取地址栏参数
+  var str = location.search // ?key=%E5%8C%A1%E5%A8%81&name=pp&age=18
+  // 进行转码
+  str = decodeURI(str) // ?key=匡威&name=pp&age=18
+  // 截取需要的
+  str = str.slice(1) //  key=匡威&name=pp&age=18
+  // 字符串分割
+  var arr = str.split('&') // ["key=匡威", "name=pp", "age=18"]
+  // 遍历数组
+  var obj = {}
+  arr.forEach(function(v, i) {
+    var key = v.split('=')[0]
+    var value = v.split('=')[1]
+    // 将属性添加到对象中
+    obj[key] = value
+  })
+
+  return obj[k]
+}
