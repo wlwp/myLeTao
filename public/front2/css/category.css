@@ -1,0 +1,39 @@
+.lt_main .main_left {
+  width: 90px;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.main_left ul li a{
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #E3E4E5;
+  color: #666;
+}
+.main_left ul li a.current {
+  background-color: #fff;
+  border-right: none;
+}
+.lt_main .main_right {
+  height: 100%;
+  /* background-color: yellow; */
+  overflow: hidden;
+  position: relative;
+}
+.main_right ul li {
+  float: left;
+  width: 33.3%;
+}
+.main_right ul li a {
+  display: block;
+  text-align: center;
+}
+.main_right ul li a img {
+  width: 70px;
+  height: 50px;
+  margin: 0 auto;
+}
