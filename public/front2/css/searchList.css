@@ -1,0 +1,42 @@
+.main_nav {
+  height: 30px;
+  line-height: 30px;
+  background-color: #eeeeee;
+}
+.main_nav ul li {
+  float: left;
+  width: 25%;
+}
+.main_nav ul li a {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+.main_nav ul li a i {
+  margin-left: 3px;
+}
+
+.main_nav ul li a.current {
+  color: #ff8c00;
+}
+
+.loading {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #069;
+  position: absolute;
+  left: 50%;
+  margin-top: 200px;
+  transform: translateX(-50%);
+  animation: run 1s infinite;
+}
+
+@keyframes run {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}

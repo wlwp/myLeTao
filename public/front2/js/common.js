@@ -11,3 +11,21 @@ $(function() {
     interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
   })
 })
+
+// 需求: 地址栏  xxx.html?key=匡威&name=pp&age=18
+//      解析地址栏参数, 将参数解析成一个对象
+//      例如: { key: '匡威', name: 'pp', age: 18 }
+
+function getSearch(key) {
+  var str = location.search // "?key=%E5%8C%A1%E5%A8%81&name=pp&age=18"
+  str = decodeURI(str) // "?key=匡威&name=pp&age=18"
+  str = str.slice(1) // key=匡威&name=pp&age=18"
+  var arr = str.split('&') // ["key=匡威", "name=pp", "age=18"]
+  var obj = {}
+  arr.forEach(function(v, i) {
+    var key = v.split('=')[0]
+    var value = v.split('=')[1]
+    obj[key] = value
+  })
+  return obj[key]
+}

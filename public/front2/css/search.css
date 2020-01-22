@@ -1,0 +1,32 @@
+
+.main_content {
+  padding: 10px;
+}
+.main_content .content_title {
+  height: 30px;
+  line-height: 30px;
+}
+
+.main_content .content_title span {
+  font-size: 12px;
+  color: #666;
+}
+.main_content .content_history ul{
+  border: 1px dashed #e92322;
+}
+.content_history ul li {
+  border-bottom: 1px dashed #e92322;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+
+}
+.content_history ul li i {
+  line-height: 30px;
+}
+.content_history ul li:last-child {
+  border: none;
+}
+.content_history ul a {
+  font-size: 12px;
+}
